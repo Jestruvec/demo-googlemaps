@@ -4,8 +4,6 @@ import { computed, ref, onMounted, onUnmounted, watch } from 'vue'
 import { useGeolocation } from './useGeolocation'
 import { Loader } from '@googlemaps/js-api-loader'
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyBsjveYDAkv-PQxg4bY_YkFVw0hhcaLjBI'
-
 export default {
   name: 'App',
   setup() {
@@ -16,7 +14,7 @@ export default {
     }))
     const otherPos = ref(null)
 
-    const loader = new Loader({ apiKey: GOOGLE_MAPS_API_KEY })
+    const loader = new Loader({ apiKey: process.env.GOOGLE_MAPS_API_KEY })
     const mapDiv = ref(null)
     let map = ref(null)
     let clickListener = null
